@@ -3,25 +3,26 @@ module Buildku
     class Rails < Gem
       def write_db
         _puts_heading("Writing database.yml")
+        db_prefix = name.gsub("-", "_")
         File.open(File.join(root_path, "config", "database.yml"), 'w') do |f|
           f.puts "development:"
           f.puts "  adapter: mysql2"
           f.puts "  host: #{config.db_host}"
           f.puts "  username: #{config.db_username}"
           f.puts "  password: #{config.db_password}"
-          f.puts "  database: #{name}_development"
+          f.puts "  database: #{db_prefix}_development"
           f.puts "production:"
           f.puts "  adapter: mysql2"
           f.puts "  host: #{config.db_host}"
           f.puts "  username: #{config.db_username}"
           f.puts "  password: #{config.db_password}"
-          f.puts "  database: #{name}_production"
+          f.puts "  database: #{db_prefix}_production"
           f.puts "test:"
           f.puts "  adapter: mysql2"
           f.puts "  host: #{config.db_host}"
           f.puts "  username: #{config.db_username}"
           f.puts "  password: #{config.db_password}"
-          f.puts "  database: #{name}_test"
+          f.puts "  database: #{db_prefix}_test"
         end
       end
 
