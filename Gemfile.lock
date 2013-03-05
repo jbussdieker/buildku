@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitku (0.0.1)
+    buildku (0.0.1)
 
 GEM
   specs:
@@ -10,4 +10,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  gitku!
+  buildku!
